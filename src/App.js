@@ -1,10 +1,12 @@
 import Card from "./components/Card";
 import './App.css';
+import data from "./data.json";
 
 function App() {
   return (
     <div className="App">
-      <Card/>
+      {/* {data.comments.forEach(item => {<Card gg={item}/>})} */}
+      <Card cardata={data.comments[1]}/>
     </div>
   );
 }

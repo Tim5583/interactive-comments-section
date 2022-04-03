@@ -7,3 +7,32 @@
     padding: 1rem 2rem;
     border-radius: 10px;
 }
+
+.cards {
+    display: flex;
+    max-width: 800px;
+    width: 90%;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+
+.cardReply {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+}
+
+.replyContainer {
+    border-left: 3px solid black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.verticalLine {
+    width: 20px;
+}
