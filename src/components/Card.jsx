@@ -2,34 +2,19 @@ import Vote from "./Vote";
 import classes from "./Card.module.css";
 import CardInfo from "./CardInfo";
 
-const Card = ({cardata}) => {
-    const {score} = cardata;
+const Card = (props) => {
+    const {score} = props.cardata;
+    console.log(props.isreply)
+
+    const style = {
+        margin: props.isreply ? "0" : "auto",
+    }
 
     return (
-
-        <>
-        <div className={classes.card}>
+        <div className={classes.card} style={style}>
             <Vote score={score}/> 
-            <CardInfo />
+            <CardInfo cardata={props.cardata}/>
         </div>
-
-        if (replies) {
-             <div className={classes.cardReply}>
-                <div className={classes.verticalLine}></div>
-                <div className={classes.replyContainer}>
-                    <div className={classes.cards}>
-                        <Vote /> 
-                        <CardInfo />
-                    </div>
-    
-                    <div className={classes.cards}>
-                        <Vote /> 
-                        <CardInfo />
-                    </div>
-                </div>
-            </div>
-        }
-        </>
      );
 }
  

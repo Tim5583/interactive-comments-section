@@ -1,4 +1,4 @@
-import Card from "./components/Card";
+import CardComponent from './components/CardComponent';
 import './App.css';
 import data from "./data.json";
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       {/* {data.comments.forEach(item => {<Card gg={item}/>})} */}
-      <Card cardata={data.comments[1]}/>
+      <CardComponent cardata={data.comments[1]}/>
     </div>
   );
 }
