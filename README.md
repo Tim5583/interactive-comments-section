@@ -1,4 +1,40 @@
-# Getting Started with Create React App
+# Time tracking dashboard solution
+
+## Table of contents
+
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+  - [react](#react)
+- [Author](#author)
+
+## Overview
+
+### Screenshot
+
+![the screenshot](./Screenshot.png)
+[LIVE-URL](https://serene-gecko-257d1d.netlify.app/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- grid
+- react
+
+### Useful resources
+
+- [w3schools](https://www.w3schools.com/) - tutorial for html and css
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML) - Documentation for html
+
+### react
+
+#### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +104,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Author
+
+- github - [Tim5583](https://github.com/Tim5583)
+- Frontend Mentor - [@Tim5583](https://www.frontendmentor.io/profile/Tim5583)
+- Twitter - [@Praveen_TGW](https://twitter.com/Praveen_TGW)
