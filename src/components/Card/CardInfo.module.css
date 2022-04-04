@@ -13,8 +13,8 @@
 .cardHeaderText {
     display: flex;
     align-items: center;
-    flex-basis: 40%;
-    justify-content: space-between;
+    flex-basis: 50%;
+    gap: 10px;
 }
 
 .profilePicture {

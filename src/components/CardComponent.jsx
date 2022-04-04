@@ -1,10 +1,8 @@
 import classes from "./CardComponent.module.css";
-import Card from "./Card";
+import Card from "./Card/Card";
 
 const CardComponent = ({cardata}) => {
-    const {score, replies} = cardata;
-    console.log(replies && "hello")
-    replies.forEach(item => console.log(item))
+    const {replies} = cardata;
 
     return (
 
@@ -14,15 +12,13 @@ const CardComponent = ({cardata}) => {
         {replies && (
              <div className={classes.cardReply}>
                 <div className={classes.verticalLine}></div>
-                <div className={classes.replyContainer}>
-                    <Card cardata={cardata} isreply={true}/>
-                    
-                    {replies.forEach(item => <h1>Hello</h1>)}
+                <div className={classes.replyContainer}>            
+                    {replies.map(item => <Card cardata={item} isreply={true} key={item.id}/>)}
                 </div>
             </div>
         )}
         </>
      );
 }
- 
+
 export default CardComponent;

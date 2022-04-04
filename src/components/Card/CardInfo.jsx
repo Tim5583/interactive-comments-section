@@ -1,5 +1,6 @@
 import classes from "./CardInfo.module.css";
-import avatar1 from "../images/avatars/image-amyrobson.png";
+import avatar1 from "../../images/avatars/image-amyrobson.png";
+import replyIcon from "../../images/icon-reply.svg";
 
 const CardInfo = ({cardata}) => {
 
@@ -13,7 +14,7 @@ const CardInfo = ({cardata}) => {
                     <p>{createdAt}</p>
                 </div>
                 <div className={classes.cardHeaderBtns}>
-                    reply
+                    <button><img src={replyIcon} alt="" />Reply</button>
                 </div>
             </div>
             <div className={classes.cardText}>

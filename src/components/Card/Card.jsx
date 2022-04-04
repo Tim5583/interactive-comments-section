@@ -4,7 +4,6 @@ import CardInfo from "./CardInfo";
 
 const Card = (props) => {
     const {score} = props.cardata;
-    console.log(props.isreply)
 
     const style = {
         margin: props.isreply ? "0" : "auto",

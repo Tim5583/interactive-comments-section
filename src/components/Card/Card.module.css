@@ -7,12 +7,3 @@
     padding: 1rem 2rem;
     border-radius: 10px;
 }
-
-.cards {
-    display: flex;
-    max-width: 800px;
-    width: 90%;
-    background-color: #ffffff;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-}

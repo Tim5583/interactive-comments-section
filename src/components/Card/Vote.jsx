@@ -1,6 +1,6 @@
 import classes from "./Vote.module.css";
-import plueIcon from "../images/icon-plus.svg"
-import minusIcon from "../images/icon-minus.svg"
+import plueIcon from "../../images/icon-plus.svg"
+import minusIcon from "../../images/icon-minus.svg"
 
 const Vote = (props) => {
     const {score} = props;
