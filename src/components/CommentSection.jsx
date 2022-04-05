@@ -1,11 +1,19 @@
+import { useRef, useState } from "react";
 import classes from "./CommentSection.module.css";
-import avatar from "../images/avatars/image-amyrobson.png"
+// import avatar from "../images/avatars/image-amyrobson.png"
 
-const CommentSection = (props) => {
+const CommentSection = ({currentUser, currentUserProfilePic, onComment}) => {
+    const [comment, setComment] = useState("");
+
+    const sentdata = (e) => {
+        e.preventDefault();
+        onComment(comment)
+        setComment("")
+    };
     return ( 
-        <form className={classes.form}> 
-            <img src={avatar} alt="" className={classes.profilePic}/>
-            <textarea name="comment" id="comment" rows="4" placeholder="Add a comment.."></textarea>
+        <form className={classes.form} onSubmit={sentdata}> 
+            <img src={currentUserProfilePic} alt="" className={classes.profilePic}/>
+            <textarea name="comment" id="comment" rows="4" placeholder="Add a comment.." value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
             <input type="submit" value="Send" className={classes.btn}/>
         </form>
      );

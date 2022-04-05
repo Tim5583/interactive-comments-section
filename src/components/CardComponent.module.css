@@ -17,7 +17,7 @@
 }
 
 .replyContainer {
-    border-left: 3px solid black;
+    border-left: 3px solid rgb(167, 167, 167);
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -26,5 +26,5 @@
 }
 
 .verticalLine {
-    width: 20px;
+    width: 60px;
 }

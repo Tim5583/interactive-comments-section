@@ -18,6 +18,11 @@
     justify-content: center;
     border: none;
     background-color: transparent;
+    opacity: .4;
+}
+
+.incrementButton:hover, .decrementButton:hover {
+    opacity: 1;
 }
 
 .votesNumber {

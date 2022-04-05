@@ -21,6 +21,27 @@
     width: 40px;
 }
 
+.btn {
+    color: #5357b7;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.btnIcon {
+    margin-right: 5px;
+}
+
+.btn:hover .btnIcon{
+    opacity: .5;
+}
+
+.btn:hover {
+    color: #c4c6ef;
+}
+
 /* card text  */
 
 .cardText {
