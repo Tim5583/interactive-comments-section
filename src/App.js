@@ -34,7 +34,7 @@ function App() {
   console.log("comments", database.comments)
   return (
     <div className="App">
-      {database.comments.map(item => <CardComponent cardata={item} key={item.id}/>)}
+      {database.comments.map(item => <CardComponent cardata={item} key={item.id} currentUser={username}/>)}
       <CommentSection currentUser={username} currentUserProfilePic={webp} onComment={addComment}/>
     </div>
   );

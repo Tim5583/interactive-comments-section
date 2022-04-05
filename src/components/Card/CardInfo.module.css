@@ -13,12 +13,20 @@
 .cardHeaderText {
     display: flex;
     align-items: center;
-    flex-basis: 50%;
+    flex-basis: 60%;
     gap: 10px;
 }
 
 .profilePicture {
     width: 40px;
+}
+
+.badge {
+    background-color: #5357b7;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 1px 2px;
 }
 
 .btn {

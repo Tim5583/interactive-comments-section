@@ -2,15 +2,17 @@ import classes from "./CardInfo.module.css";
 // import avatar1 from "../../images/avatars/image-amyrobson.png";
 // import replyIcon from "../../images/icon-reply.svg";
 
-const CardInfo = ({cardata}) => {
+const CardInfo = ({cardata, currentUser}) => {
 
     const {content, createdAt, user: {username, image: {webp}}} = cardata;
+    
     return ( 
         <div className={classes.cardInfoContainer}>
             <div className={classes.cardHeader}>
                 <div className={classes.cardHeaderText}>
                     <img src={webp} alt="" className={classes.profilePicture}/>
                     <p>{username}</p>
+                    {username === currentUser ? <p className={classes.badge}>You</p> : null}
                     <p>{createdAt}</p>
                 </div>
                 <div className={classes.cardHeaderBtns}>

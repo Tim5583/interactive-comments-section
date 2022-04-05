@@ -3,7 +3,7 @@ import classes from "./Card.module.css";
 import CardInfo from "./CardInfo";
 
 const Card = (props) => {
-    const {score} = props.cardata;
+    const {score, id} = props.cardata;
 
     const style = {
         margin: props.isreply ? "0" : "auto",
@@ -11,8 +11,8 @@ const Card = (props) => {
 
     return (
         <div className={classes.card} style={style}>
-            <Vote score={score}/> 
-            <CardInfo cardata={props.cardata}/>
+            <Vote score={score} id={id}/> 
+            <CardInfo cardata={props.cardata} currentUser={props.currentUser}/>
         </div>
      );
 }

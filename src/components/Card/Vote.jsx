@@ -3,7 +3,7 @@ import classes from "./Vote.module.css";
 // import minusIcon from "../../images/icon-minus.svg"
 
 const Vote = (props) => {
-    const {score} = props;
+    const {score, id} = props;
 
     return (
         <div className={classes.voteContainer}>
