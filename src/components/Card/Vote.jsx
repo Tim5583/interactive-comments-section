@@ -13,5 +13,5 @@ const Vote = (props) => {
         </div>
     );
 }
- 
+
 export default Vote;

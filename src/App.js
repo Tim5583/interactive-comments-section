@@ -9,7 +9,6 @@ function App() {
   const {username, image: {webp}} = data.currentUser;
 
   const addComment = (comment) => {
-    console.log(comment)
     const obj = {
       "id": Math.floor(Math.random() * 99999999999),
       "content": comment,
@@ -34,8 +33,8 @@ function App() {
   console.log("comments", database.comments)
   return (
     <div className="App">
-      {database.comments.map(item => <CardComponent cardata={item} key={item.id} currentUser={username}/>)}
-      <CommentSection currentUser={username} currentUserProfilePic={webp} onComment={addComment}/>
+      {database.comments.map(item => <CardComponent cardata={item} key={item.id} currentUser={[username, webp]}/>)}
+      <CommentSection currentUser={username} currentUserProfilePic={webp} onComment={addComment} buttonText="Save"/>
     </div>
   );
 }
