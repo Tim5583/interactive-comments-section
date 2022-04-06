@@ -38,16 +38,33 @@
     cursor: pointer;
 }
 
+.btndelete {
+    color: #f06664;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.btndelete + .btn {
+    margin-left: 15px;
+}
+
 .btnIcon {
     margin-right: 5px;
 }
 
-.btn:hover .btnIcon{
+.btn:hover .btnIcon, .btndelete:hover .btnIcon{
     opacity: .5;
 }
 
 .btn:hover {
     color: #c4c6ef;
+}
+
+.btndelete:hover {
+    color: #fdb9ba;
 }
 
 /* card text  */

@@ -2,7 +2,7 @@ import classes from "./CardInfo.module.css";
 // import avatar1 from "../../images/avatars/image-amyrobson.png";
 // import replyIcon from "../../images/icon-reply.svg";
 
-const CardInfo = ({cardata, currentUser, onReply}) => {
+const CardInfo = ({cardata, currentUser, onComment}) => {
 
     const {content, createdAt, user: {username, image: {webp}}} = cardata;
     
@@ -16,7 +16,13 @@ const CardInfo = ({cardata, currentUser, onReply}) => {
                     <p>{createdAt}</p>
                 </div>
                 <div className={classes.cardHeaderBtns}>
-                    <button className={classes.btn} onClick={onReply}><img src="images/icon-reply.svg" alt="" className={classes.btnIcon}/>Reply</button>
+                    {username === currentUser ? <>
+                        <button className={classes.btndelete}><img src="images/icon-delete.svg" alt="" className={classes.btnIcon}/>Delete</button>
+                        <button className={classes.btn}><img src="images/icon-edit.svg" alt="" className={classes.btnIcon}/>Edit</button>
+                        </> : 
+                        <button className={classes.btn} onClick={onComment}><img src="images/icon-reply.svg" alt="" className={classes.btnIcon}/>Reply</button>
+                    }
+
                 </div>
             </div>
             <div className={classes.cardText}>
