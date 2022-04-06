@@ -2,7 +2,7 @@ import Vote from "./Vote";
 import classes from "./Card.module.css";
 import CardInfo from "./CardInfo";
 import { useState } from "react";
-import CommentSection from "../CommentSection";
+import ReplySection from "../ReplySection";
 
 const Card = (props) => {
     const {score, id} = props.cardata;
@@ -17,7 +17,6 @@ const Card = (props) => {
             const newVal = !prevVal;
             return newVal;
         })
-        console.log("clicked")
     };
 
     return (
@@ -26,7 +25,7 @@ const Card = (props) => {
                 <Vote score={score} id={id}/> 
                 <CardInfo cardata={props.cardata} currentUser={props.currentUser[0]} onReply={addreply}/>
             </div>
-            {reply ? <CommentSection currentUser={props.currentUser[0]} currentUserProfilePic={props.currentUser[1]} buttonText="Reply"/> : null}
+            {reply ? <ReplySection currentUser={props.currentUser[0]} currentUserProfilePic={props.currentUser[1]} onReply={props.onReply} replyto={props.cardata.replyingTo || props.cardata.user.username}/> : null}
         </>
      );
 }

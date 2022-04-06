@@ -30,11 +30,38 @@ function App() {
     })
 
   }
-  console.log("comments", database.comments)
+
+  const addReply = (replyto, reply) => {
+    const obj = {
+      "id": Math.floor(Math.random() * 9999999999999),
+      "content": reply,
+      "createdAt": "2 week ago",
+      "score": 0,
+      "replyingTo": replyto,
+      "user": {
+        "image": {
+          "webp": webp
+        },
+        "username": username
+      }
+    }
+    setdatabase((prevdata) => {
+      const database = {...prevdata};
+      database.comments.forEach((item) => {
+        console.log(item)
+        if (item.user.username === replyto) {
+          item.replies.push(obj)
+        }
+      })
+      return database;
+    })
+  }
+
+
   return (
     <div className="App">
-      {database.comments.map(item => <CardComponent cardata={item} key={item.id} currentUser={[username, webp]}/>)}
-      <CommentSection currentUser={username} currentUserProfilePic={webp} onComment={addComment} buttonText="Save"/>
+      {database.comments.map(item => <CardComponent cardata={item} key={item.id} currentUser={[username, webp]} onReply={addReply}/>)}
+      <CommentSection currentUser={username} currentUserProfilePic={webp} onComment={addComment}/>
     </div>
   );
 }

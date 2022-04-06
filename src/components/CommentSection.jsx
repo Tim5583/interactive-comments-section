@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import classes from "./CommentSection.module.css";
 // import avatar from "../images/avatars/image-amyrobson.png"
 
-const CommentSection = ({currentUser, currentUserProfilePic, onComment, buttonText}) => {
+const CommentSection = ({currentUser, currentUserProfilePic, onComment}) => {
     const [comment, setComment] = useState("");
 
     const sentdata = (e) => {
@@ -14,7 +14,7 @@ const CommentSection = ({currentUser, currentUserProfilePic, onComment, buttonTe
         <form className={classes.form} onSubmit={sentdata}> 
             <img src={currentUserProfilePic} alt="" className={classes.profilePic}/>
             <textarea name="comment" id="comment" rows="4" placeholder="Add a comment.." value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
-            <input type="submit" value={buttonText} className={classes.btn}/>
+            <input type="submit" value="Send" className={classes.btn}/>
         </form>
      );
 }
