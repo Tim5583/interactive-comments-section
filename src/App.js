@@ -3,6 +3,7 @@ import CommentSection from './components/CommentSection';
 import './App.css';
 import data from "./data.json";
 import { useState } from 'react';
+import DeleteMessageBox from './components/DeleteMessageBox';
 
 function App() {
   const [database, setdatabase] = useState(data);
@@ -98,6 +99,8 @@ function App() {
         currentUserProfilePic={webp} 
         onComment={handleAddComment}
       />
+
+      <DeleteMessageBox/>
     </div>
   );
 }

@@ -1,0 +1,61 @@
+.deleteBoxBody {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.57);
+}
+
+.deleteBox {
+    width: 320px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem 2rem 1rem;
+    border-radius: 10px;
+}
+
+.deleteBoxHeader {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #41444e;
+}
+
+.deleteBoxDescription {
+    line-height: 1.5em;
+    color: #777b7e;
+}
+
+.deleteBoxButtonContainer {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deleteBox button {
+    padding: .8em 1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.deleteBox button:hover {
+    opacity: .8;
+}
+
+.deleteBoxCanclebtn {
+    background-color: #68727e;
+}
+
+.deleteBoxDeletebtn {
+    background-color: #ee626a;
+}
