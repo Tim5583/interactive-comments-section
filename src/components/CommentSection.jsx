@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import classes from "./CommentSection.module.css";
 // import avatar from "../images/avatars/image-amyrobson.png"
 

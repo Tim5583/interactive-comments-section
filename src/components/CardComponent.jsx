@@ -1,19 +1,19 @@
 import classes from "./CardComponent.module.css";
 import Card from "./Card/Card";
 
-const CardComponent = ({cardata, currentUser, onReply}) => {
+const CardComponent = ({cardata, currentUser, onReply, onVoteChange}) => {
     const {replies} = cardata;
 
     return (
 
         <>
-        <Card cardata={cardata} isreply={false} currentUser={currentUser} onReply={onReply}/>
+        <Card cardata={cardata} isreply={false} currentUser={currentUser} onReply={onReply} onVoteChange={onVoteChange}/>
 
         {replies && (
              <div className={classes.cardReply}>
                 <div className={classes.verticalLine}></div>
                 <div className={classes.replyContainer}>            
-                    {replies.map(item => <Card cardata={item} isreply={true} key={item.id} currentUser={currentUser} onReply={onReply}/>)}
+                    {replies.map(item => <Card cardata={item} isreply={true} key={item.id} currentUser={currentUser} onReply={onReply} onVoteChange={onVoteChange}/>)}
                 </div>
             </div>
         )}

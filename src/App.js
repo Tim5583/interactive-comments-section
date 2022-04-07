@@ -8,7 +8,7 @@ function App() {
   const [database, setdatabase] = useState(data);
   const {username, image: {webp}} = data.currentUser;
 
-  const addComment = (comment) => {
+  const handleAddComment = (comment) => {
     const obj = {
       "id": Math.floor(Math.random() * 99999999999),
       "content": comment,
@@ -29,9 +29,9 @@ function App() {
       return database;
     })
 
-  }
+  };
 
-  const addReply = (replyto, reply) => {
+  const handleAddReply = (replyto, reply) => {
     const obj = {
       "id": Math.floor(Math.random() * 9999999999999),
       "content": reply,
@@ -48,20 +48,56 @@ function App() {
     setdatabase((prevdata) => {
       const database = {...prevdata};
       database.comments.forEach((item) => {
-        console.log(item)
         if (item.user.username === replyto) {
           item.replies.push(obj)
         }
       })
       return database;
     })
-  }
+  };
+
+  const handleVote = (id , voteType) => {
+    setdatabase(prevdata => {
+
+      // make deep copy 
+      const database =JSON.parse(JSON.stringify(prevdata));
+      let userdata = database.comments.filter(item => item.id === id)
+      if (userdata.length === 0) {
+        database.comments.forEach(item => {  
+          userdata = item.replies.filter(item => item.id === id)
+        })
+      }
+
+      let score = Number(userdata[0].score);
+      if (voteType === "up") {
+        score++;
+      }
+
+      if (voteType === "down") {
+        score--;
+      }
+      userdata[0].score = score;
+      return database;
+    })
+  };
 
 
   return (
     <div className="App">
-      {database.comments.map(item => <CardComponent cardata={item} key={item.id} currentUser={[username, webp]} onReply={addReply}/>)}
-      <CommentSection currentUser={username} currentUserProfilePic={webp} onComment={addComment}/>
+      {database.comments.map(item => 
+        <CardComponent 
+          cardata={item} 
+          key={item.id} 
+          currentUser={[username, webp]} 
+          onReply={handleAddReply}
+          onVoteChange={handleVote}/>
+      )}
+      
+      <CommentSection 
+        currentUser={username} 
+        currentUserProfilePic={webp} 
+        onComment={handleAddComment}
+      />
     </div>
   );
 }
