@@ -94,18 +94,14 @@ function App() {
     const id = deleleteItemId
     setdatabase(prevdata => {
       const database =JSON.parse(JSON.stringify(prevdata));
-      // ! handle delete comment 
-
-      console.log("before, ",database)
       database.comments = database.comments.filter(item => item.id !== id);
-      console.log("after", database)
-      // if (database.length === newdatabase.length) {
-      //   newdatabase.comments.forEach((item, index) => {
-      //     if (item.id === id) {
-      //       item.replies = item.replies.splice(index, 1)
-      //     }
-      //   })
-      // }
+
+      if (database.comments.length === prevdata.comments.length) {
+        database.comments.forEach((item, idx) => {
+          item.replies = item.replies.filter(item => item.id !== id)
+        })
+      }
+
       setShowDialog(false);
       return database;
     })

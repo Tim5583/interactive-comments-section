@@ -73,4 +73,9 @@
 .cardText {
     margin-top: 10px;
     line-height: 25px;
+    width: 100%;
+}
+
+.cardText textarea {
+    width: 450px;
 }
