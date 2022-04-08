@@ -8,6 +8,8 @@ import DeleteMessageBox from './components/DeleteMessageBox';
 function App() {
   const [database, setdatabase] = useState(data);
   const {username, image: {webp}} = data.currentUser;
+  const [showDialog, setShowDialog] = useState(false);
+  const [deleleteItemId, setDeleteItemId] = useState(null)
 
   const handleAddComment = (comment) => {
     const obj = {
@@ -82,6 +84,32 @@ function App() {
     })
   };
 
+  const handleDelete = (id) => {
+    setShowDialog(true)
+    setDeleteItemId(id)
+    console.log("i got deleted", id)
+  }
+
+  const handleDeleteCard = () => {
+    const id = deleleteItemId
+    setdatabase(prevdata => {
+      const database =JSON.parse(JSON.stringify(prevdata));
+      // ! handle delete comment 
+
+      console.log("before, ",database)
+      database.comments = database.comments.filter(item => item.id !== id);
+      console.log("after", database)
+      // if (database.length === newdatabase.length) {
+      //   newdatabase.comments.forEach((item, index) => {
+      //     if (item.id === id) {
+      //       item.replies = item.replies.splice(index, 1)
+      //     }
+      //   })
+      // }
+      setShowDialog(false);
+      return database;
+    })
+  }
 
   return (
     <div className="App">
@@ -91,7 +119,8 @@ function App() {
           key={item.id} 
           currentUser={[username, webp]} 
           onReply={handleAddReply}
-          onVoteChange={handleVote}/>
+          onVoteChange={handleVote}
+          onDelete={handleDelete}/>
       )}
       
       <CommentSection 
@@ -100,7 +129,8 @@ function App() {
         onComment={handleAddComment}
       />
 
-      <DeleteMessageBox/>
+      <DeleteMessageBox showDialog={showDialog} onDeleteBoxCancel={() => {
+        setShowDialog(false)}} confirmDelete={handleDeleteCard}/>
     </div>
   );
 }
