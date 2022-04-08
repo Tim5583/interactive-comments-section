@@ -1,10 +1,19 @@
+import { useState } from "react";
 import classes from "./CardInfo.module.css";
 // import avatar1 from "../../images/avatars/image-amyrobson.png";
 // import replyIcon from "../../images/icon-reply.svg";
 
-const CardInfo = ({cardata, currentUser, onReply, onDelete}) => {
+const CardInfo = ({cardata, currentUser, onReply, onDelete, onUpdate}) => {
 
-    const {content, createdAt, user: {username, image: {webp}}} = cardata;
+    const {content, createdAt, user: {username, image: {webp}}, id} = cardata;
+    const [isEdit, setIsEdit] = useState(false);
+    const [message, setMessage] = useState(content);
+
+    const updateData = (e) => {
+        e.preventDefault();
+        onUpdate(id, message);
+        setIsEdit(false)
+    };
     
     return ( 
         <div className={classes.cardInfoContainer}>
@@ -18,7 +27,7 @@ const CardInfo = ({cardata, currentUser, onReply, onDelete}) => {
                 <div className={classes.cardHeaderBtns}>
                     {username === currentUser ? <>
                         <button className={classes.btndelete} onClick={() => onDelete(cardata.id)}><img src="images/icon-delete.svg" alt="" className={classes.btnIcon}/>Delete</button>
-                        <button className={classes.btn}><img src="images/icon-edit.svg" alt="" className={classes.btnIcon}/>Edit</button>
+                        <button className={classes.btn} onClick={() => setIsEdit(prev => !prev)}><img src="images/icon-edit.svg" alt="" className={classes.btnIcon}/>Edit</button>
                         </> : 
                         <button className={classes.btn} onClick={onReply}><img src="images/icon-reply.svg" alt="" className={classes.btnIcon}/>Reply</button>
                     }
@@ -26,7 +35,17 @@ const CardInfo = ({cardata, currentUser, onReply, onDelete}) => {
                 </div>
             </div>
             <div className={classes.cardText}>
-                {content}
+                {isEdit ? 
+                    <form onSubmit={updateData}>
+                        <textarea 
+                            value={message} 
+                            onChange={(e) => setMessage(e.target.value)}>
+                        </textarea>
+                        <button>UPDATE</button>
+                    </form>
+                        : 
+                    <>{content}</>
+                }
             </div>
         </div>
      );

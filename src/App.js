@@ -87,7 +87,6 @@ function App() {
   const handleDelete = (id) => {
     setShowDialog(true)
     setDeleteItemId(id)
-    console.log("i got deleted", id)
   }
 
   const handleDeleteCard = () => {
@@ -107,6 +106,20 @@ function App() {
     })
   }
 
+  const handleUpdata = (id, message) => {
+    setdatabase(prevdata => {
+      const database =JSON.parse(JSON.stringify(prevdata));
+      let userdata = database.comments.filter(item => item.id === id)
+      if (userdata.length === 0) {
+        database.comments.forEach(item => {  
+          userdata = item.replies.filter(item => item.id === id)
+        })
+      }
+      userdata[0].content = message;
+      return database;
+    })
+  }
+
   return (
     <div className="App">
       {database.comments.map(item => 
@@ -116,7 +129,8 @@ function App() {
           currentUser={[username, webp]} 
           onReply={handleAddReply}
           onVoteChange={handleVote}
-          onDelete={handleDelete}/>
+          onDelete={handleDelete}
+          onUpdate={handleUpdata}/>
       )}
       
       <CommentSection 
