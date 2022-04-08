@@ -101,3 +101,16 @@
 .cardText button:hover {
     opacity: .5;
 }
+
+
+@media (max-width: 800px) {
+    .cardHeaderBtns {
+        position: absolute;
+        bottom: 30px;
+        right: 20px;
+    }
+
+    .cardHeaderText {
+        flex-basis: 100%;
+    }
+}

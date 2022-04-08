@@ -6,6 +6,7 @@
     background-color: #ffffff;
     padding: 1rem 2rem;
     border-radius: 10px;
+    position: relative;
 }
 
 .profilePic {
@@ -42,4 +43,23 @@ textarea::placeholder {
 
 .btn:hover {
     background-color: #c3c6f0;
+}
+
+@media (max-width: 800px) {
+    .form {
+        flex-direction: column;
+    }
+
+    .btn {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+
+    .profilePic {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+    }
 }

@@ -29,3 +29,13 @@
 .verticalLine {
     width: 60px;
 }
+
+@media (max-width: 800px) {
+    .verticalLine {
+        display: none;
+    }
+
+    .replyContainer {
+        border-left: none;
+    }
+}

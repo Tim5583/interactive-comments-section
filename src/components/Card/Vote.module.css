@@ -28,3 +28,14 @@
 .votesNumber {
     margin: 6px 0;
 }
+
+@media (max-width: 800px) {
+    .voteContainer {
+        flex-direction: row;
+        height: 50px;
+        width: 120px;
+        justify-content: space-between;
+        order: 2;
+        margin-top: 10px;
+    }
+}
