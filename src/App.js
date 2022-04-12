@@ -5,6 +5,15 @@ import data from "./data.json";
 import { useState } from 'react';
 import DeleteMessageBox from './components/DeleteMessageBox';
 
+
+const saveToLocalStorage = (data) => {
+  localStorage.setItem("data", JSON.stringify(data))
+}
+
+data = JSON.parse(localStorage.getItem("data")) || {};
+console.log(data)
+
+
 function App() {
   const [database, setdatabase] = useState(data);
   const {username, image: {webp}} = data.currentUser;
@@ -29,6 +38,7 @@ function App() {
     setdatabase((prevdata) => {
       const database = {...prevdata};
       database.comments.push(obj);
+      saveToLocalStorage(database);
       return database;
     })
 
@@ -55,6 +65,7 @@ function App() {
           item.replies.push(obj)
         }
       })
+      saveToLocalStorage(database);
       return database;
     })
   };
@@ -80,6 +91,7 @@ function App() {
         score--;
       }
       userdata[0].score = score;
+      saveToLocalStorage(database);
       return database;
     })
   };
@@ -102,6 +114,7 @@ function App() {
       }
 
       setShowDialog(false);
+      saveToLocalStorage(database);
       return database;
     })
   }
@@ -116,13 +129,14 @@ function App() {
         })
       }
       userdata[0].content = message;
+      saveToLocalStorage(database);
       return database;
     })
   }
 
   return (
     <div className="App">
-      {database.comments.map(item => 
+      {database && database.comments.map(item => 
         <CardComponent 
           cardata={item} 
           key={item.id} 
