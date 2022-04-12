@@ -1,4 +1,4 @@
-# Time tracking dashboard solution  in progress..............!
+# Time tracking dashboard solution
 
 ## Table of contents
 

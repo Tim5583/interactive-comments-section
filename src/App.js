@@ -10,9 +10,7 @@ const saveToLocalStorage = (data) => {
   localStorage.setItem("data", JSON.stringify(data))
 }
 
-data = JSON.parse(localStorage.getItem("data")) || {};
-console.log(data)
-
+data = JSON.parse(localStorage.getItem("data")) || data;
 
 function App() {
   const [database, setdatabase] = useState(data);

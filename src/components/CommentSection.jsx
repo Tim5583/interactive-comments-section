@@ -1,6 +1,5 @@
 import { useState } from "react";
 import classes from "./CommentSection.module.css";
-// import avatar from "../images/avatars/image-amyrobson.png"
 
 const CommentSection = ({currentUser, currentUserProfilePic, onComment}) => {
     const [comment, setComment] = useState("");
