@@ -1,4 +1,4 @@
-# Time tracking dashboard solution
+# Interactive comment section
 
 ## Table of contents
 
