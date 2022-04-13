@@ -15,7 +15,7 @@
 ### Screenshot
 
 ![the screenshot](./Screenshot.png)
-[LIVE-URL](https://interactive-comment-section-101.netlify.app/)
+- [LIVE-URL](https://interactive-comment-section-101.netlify.app/)
 
 ## My process
 
