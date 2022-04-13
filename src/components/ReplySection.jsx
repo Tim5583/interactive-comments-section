@@ -2,12 +2,12 @@ import { useState } from "react";
 import classes from "./CommentSection.module.css";
 // import avatar from "../images/avatars/image-amyrobson.png"
 
-const ReplySection = ({currentUser, currentUserProfilePic, onReply, replyto}) => {
+const ReplySection = ({currentUser, currentUserProfilePic, onReply, replyto, replyUnder}) => {
     const [reply, setReply] = useState("");
 
     const sendReply = (e) => {
         e.preventDefault();
-        onReply(replyto, reply)
+        onReply(replyto, reply, replyUnder)
         setReply("")
     };
 

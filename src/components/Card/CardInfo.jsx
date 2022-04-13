@@ -1,11 +1,10 @@
 import { useState } from "react";
 import classes from "./CardInfo.module.css";
-// import avatar1 from "../../images/avatars/image-amyrobson.png";
-// import replyIcon from "../../images/icon-reply.svg";
+
 
 const CardInfo = ({cardata, currentUser, onReply, onDelete, onUpdate}) => {
 
-    const {content, createdAt, user: {username, image: {webp}}, id} = cardata;
+    const {content, createdAt, user: {username, image: {webp}}, id, replyingTo} = cardata;
     const [isEdit, setIsEdit] = useState(false);
     const [message, setMessage] = useState(content);
 
@@ -44,7 +43,7 @@ const CardInfo = ({cardata, currentUser, onReply, onDelete, onUpdate}) => {
                         <button>UPDATE</button>
                     </form>
                         : 
-                    <>{content}</>
+                    <>{replyingTo ? <span className={classes.replyto}>@{replyingTo} </span> : null}{content}</>
                 }
             </div>
         </div>

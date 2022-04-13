@@ -42,13 +42,13 @@ function App() {
 
   };
 
-  const handleAddReply = (replyto, reply) => {
+  const handleAddReply = (replyto, reply, replyUnder) => {
     const obj = {
       "id": Math.floor(Math.random() * 9999999999999),
       "content": reply,
       "createdAt": "2 week ago",
       "score": 0,
-      "replyingTo": replyto,
+      "replyingTo": replyUnder || replyto,
       "user": {
         "image": {
           "webp": webp
@@ -59,7 +59,7 @@ function App() {
     setdatabase((prevdata) => {
       const database = {...prevdata};
       database.comments.forEach((item) => {
-        if (item.user.username === replyto) {
+        if (item.user.username === replyto || (item.user.username === replyUnder)){
           item.replies.push(obj)
         }
       })
