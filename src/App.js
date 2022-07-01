@@ -5,11 +5,12 @@ import data from "./data.json";
 import { useState } from 'react';
 import DeleteMessageBox from './components/DeleteMessageBox';
 
-
+// save data on local storage
 const saveToLocalStorage = (data) => {
   localStorage.setItem("data", JSON.stringify(data))
 }
 
+// fetch data from local storage or local data file 
 data = JSON.parse(localStorage.getItem("data")) || data;
 
 function App() {
@@ -71,7 +72,7 @@ function App() {
   const handleVote = (id , voteType) => {
     setdatabase(prevdata => {
 
-      // make deep copy 
+      // make a deep copy 
       const database =JSON.parse(JSON.stringify(prevdata));
       let userdata = database.comments.filter(item => item.id === id)
       if (userdata.length === 0) {

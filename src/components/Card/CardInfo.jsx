@@ -24,11 +24,21 @@ const CardInfo = ({cardata, currentUser, onReply, onDelete, onUpdate}) => {
                     <p>{createdAt}</p>
                 </div>
                 <div className={classes.cardHeaderBtns}>
-                    {username === currentUser ? <>
-                        <button className={classes.btndelete} onClick={() => onDelete(cardata.id)}><img src="images/icon-delete.svg" alt="" className={classes.btnIcon}/>Delete</button>
-                        <button className={classes.btn} onClick={() => setIsEdit(prev => !prev)}><img src="images/icon-edit.svg" alt="" className={classes.btnIcon}/>Edit</button>
+                    {username === currentUser ? 
+                        <>
+                            <button className={classes.btndelete} onClick={() => onDelete(cardata.id)}>
+                                <img src="images/icon-delete.svg" alt="" className={classes.btnIcon}/>
+                                Delete
+                            </button>
+                            <button className={classes.btn} onClick={() => setIsEdit(prev => !prev)}>
+                                <img src="images/icon-edit.svg" alt="" className={classes.btnIcon}/>
+                                Edit
+                            </button>
                         </> : 
-                        <button className={classes.btn} onClick={onReply}><img src="images/icon-reply.svg" alt="" className={classes.btnIcon}/>Reply</button>
+                            <button className={classes.btn} onClick={onReply}>
+                                <img src="images/icon-reply.svg" alt="" className={classes.btnIcon}/>
+                                Reply
+                            </button>
                     }
 
                 </div>
